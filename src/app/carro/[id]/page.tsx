@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import { carrosData } from '../../data/carros';
 import { 
   Gauge, Calendar, Fuel, CheckCircle, ArrowLeft, MessageCircle, 
-  X, ChevronLeft, ChevronRight, ShieldCheck, CreditCard, Sparkles 
+  X, ChevronLeft, ChevronRight, ShieldCheck, CreditCard, Sparkles, Share2, Check 
 } from 'lucide-react';
 import styles from './detalhes.module.css';
 
@@ -17,8 +17,8 @@ export default function DetalhesCarro() {
   const [fotoAtiva, setFotoAtiva] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [copiado, setCopiado] = useState(false);
 
-  // Carrossel Automático (Troca suave a cada 4 segundos)
   useEffect(() => {
     if (!carro || isModalOpen || isPaused || carro.fotos.length <= 1) return;
 
@@ -51,6 +51,28 @@ export default function DetalhesCarro() {
     setFotoAtiva((prev) => (prev - 1 + carro.fotos.length) % carro.fotos.length);
   };
 
+  // Função de Compartilhamento Inteligente
+  const handleCompartilhar = async () => {
+    const shareData = {
+      title: `${carro.nome} - VM Veículos`,
+      text: `Olha esse ${carro.nome} (${carro.ano}) que encontrei na VM Veículos!`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Compartilhamento cancelado pelo usuário.', err);
+      }
+    } else {
+      // Fallback para desktop: copia o link direto
+      navigator.clipboard.writeText(window.location.href);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2500);
+    }
+  };
+
   const whatsMsg = encodeURIComponent(`Olá Vitor! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`);
 
   return (
@@ -79,7 +101,6 @@ export default function DetalhesCarro() {
                   className={styles.fadeImg}
                 />
 
-                {/* Setas de navegação na foto principal */}
                 {carro.fotos.length > 1 && (
                   <>
                     <button 
@@ -124,11 +145,27 @@ export default function DetalhesCarro() {
                 <span className={styles.marcaBadge}>{carro.marca}</span>
                 <span className={styles.codigoBadge}>CÓD: {carro.codigo}</span>
                 {carro.vendido && <span className={styles.vendidoTag}>VENDIDO</span>}
+
+                {/* Botão de Compartilhar */}
+                <button 
+                  onClick={handleCompartilhar} 
+                  className={styles.shareBtn}
+                  title="Compartilhar este veículo"
+                >
+                  {copiado ? (
+                    <>
+                      <Check size={14} color="#25d366" /> Link Copiado!
+                    </>
+                  ) : (
+                    <>
+                      <Share2 size={14} /> Compartilhar
+                    </>
+                  )}
+                </button>
               </div>
 
               <h1 className={styles.titulo}>{carro.nome}</h1>
               
-              {/* Bloco do Preço + À Vista */}
               <div className={styles.precoContainer}>
                 <p className={styles.preco}>
                   {carro.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}

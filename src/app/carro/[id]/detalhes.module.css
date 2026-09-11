@@ -420,6 +420,28 @@
   right: 20px;
 }
 
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  margin-left: auto; /* Joga o botão de compartilhar pro lado direito no topo */
+}
+
+.shareBtn:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-color: rgba(197, 155, 39, 0.08);
+}
+
 /* --- REGRAS RESPONSIVAS EXCLUSIVAS DO CELULAR --- */
 @media (max-width: 768px) {
   .pageWrapper {
