@@ -1,0 +1,149 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.1rem 1.5rem; /* Voltou a ter mais respiro */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logoImg {
+  height: 44px; /* Restaurada a altura original */
+  width: auto;
+  object-fit: contain;
+}
+
+.brandTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.brandSubtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navLink {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--accent-color);
+}
+
+.ctaBtn {
+  background: linear-gradient(135deg, #c59b27 0%, #a37f1e 100%);
+  color: #ffffff;
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: 0.85rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.9rem 1rem;
+  }
+
+  .mobileMenuBtn {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.98);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .navLink {
+    font-size: 1.05rem;
+    display: block;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

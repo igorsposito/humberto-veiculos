@@ -1,0 +1,194 @@
+.hero {
+  position: relative;
+  background: 
+    linear-gradient(
+      180deg, 
+      rgba(15, 23, 42, 0.85) 0%, 
+      rgba(15, 23, 42, 0.95) 100%
+    ),
+    url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600') center/cover no-repeat;
+  padding: 4rem 1.5rem 3rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(197, 155, 39, 0.2);
+  color: #d4af37;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+.contentSection {
+  padding: 3.5rem 1.5rem;
+}
+
+.containerGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 850px) {
+  .containerGrid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.infoSide h2, .formCard h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.8rem;
+}
+
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.infoCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.icon {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.infoCard h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.infoCard p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.formCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.btnSubmit {
+  background: linear-gradient(135deg, #c59b27 0%, #a37f1e 100%);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.btnSubmit:hover {
+  opacity: 0.95;
+}
+
+/* Seção do Mapa */
+.mapSection {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding-top: 3rem;
+}
+
+.mapHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+}
+
+.mapHeader h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.mapHeader p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.mapWrapper {
+  width: 100%;
+  line-height: 0;
+}

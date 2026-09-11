@@ -1,0 +1,474 @@
+.pageWrapper {
+  padding: 2.5rem 1.5rem 5rem 1.5rem;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* Evita que qualquer elemento vaze pra direita */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.voltarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+.voltarLink:hover {
+  color: var(--accent-color);
+}
+
+.gridMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .gridMain {
+    grid-template-columns: 580px 1fr;
+  }
+}
+
+.galeriaSection {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* Previne que grids/flex estiquem além do container */
+}
+
+.fotoPrincipal {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+
+.fotoPrincipal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fadeImg {
+  animation: fadeIn 0.35s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.expandOverlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: rgba(15, 23, 42, 0.75);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.cardNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.6);
+  color: #ffffff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.cardNavBtn:hover {
+  background: rgba(197, 155, 39, 0.9);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.cardPrevBtn {
+  left: 12px;
+}
+
+.cardNextBtn {
+  right: 12px;
+}
+
+/* Trava principal para as miniaturas não empurrarem a página */
+.miniaturas {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumbBtn {
+  width: 85px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.thumbBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activeThumb {
+  border-color: var(--accent-color);
+}
+
+.infoSection {
+  min-width: 0; /* Impede o vazamento de texto longo */
+  width: 100%;
+}
+
+.badgingGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.marcaBadge {
+  display: inline-block;
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.codigoBadge {
+  display: inline-block;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.vendidoTag {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.titulo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.precoContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.preco {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.aVista {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.specBox {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1rem 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.specIcon {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.specBox small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.specBox strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.opcionaisSection {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.opcionaisSection h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.opcionaisList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.opcionaisList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.whatsBtnGrande {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--whatsapp-color);
+  color: #fff;
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: 1.05rem;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  text-align: center;
+  width: 100%;
+}
+
+.whatsBtnGrande:hover {
+  background-color: var(--whatsapp-hover);
+}
+
+.trustCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.trustIcon {
+  color: var(--accent-color);
+}
+
+/* Modal Lightbox */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+.modalContent img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modalCounter {
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1010;
+  transition: background 0.2s;
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.prevBtn {
+  left: 20px;
+}
+
+.nextBtn {
+  right: 20px;
+}
+
+/* --- REGRAS RESPONSIVAS EXCLUSIVAS DO CELULAR --- */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 1.2rem 1rem 4rem 1rem;
+  }
+
+  .fotoPrincipal {
+    height: 250px; /* Reduz para encaixar certinho na tela mobile */
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+
+  .preco {
+    font-size: 1.8rem;
+  }
+
+  .aVista {
+    font-size: 0.88rem;
+  }
+
+  .specsGrid {
+    grid-template-columns: 1fr; /* Empilha Ano, Km e Câmbio perfeitamente */
+    gap: 8px;
+  }
+
+  .specBox {
+    padding: 0.8rem;
+  }
+
+  .opcionaisList {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsBtnGrande {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  .navBtn {
+    padding: 8px;
+  }
+
+  .prevBtn {
+    left: 8px;
+  }
+
+  .nextBtn {
+    right: 8px;
+  }
+}
