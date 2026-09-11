@@ -8,9 +8,12 @@ interface CarCardProps {
 }
 
 export default function CarCard({ carro }: CarCardProps) {
-  const whatsMsg = encodeURIComponent(
-    `Olá Vitor! Vi que o ${carro.nome} (${carro.codigo}) no site consta como vendido. Tem algum similar?`
-  );
+  // Mensagem condicional do WhatsApp
+  const textoWhats = carro.vendido
+    ? `Olá Vitor! Vi que o ${carro.nome} (CÓD: ${carro.codigo}) no site consta como vendido. Vocês têm algum modelo similar disponível no estoque?`
+    : `Olá Vitor! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`;
+
+  const whatsMsg = encodeURIComponent(textoWhats);
 
   return (
     <div className={`${styles.card} ${carro.vendido ? styles.cardVendido : ''}`}>
@@ -60,7 +63,7 @@ export default function CarCard({ carro }: CarCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.whatsBtn}
-            title="Tenho interesse"
+            title={carro.vendido ? "Consultar similares no WhatsApp" : "Tenho interesse no WhatsApp"}
           >
             <MessageCircle size={18} />
           </a>

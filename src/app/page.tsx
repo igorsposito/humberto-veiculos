@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import CarCard from './components/CarCard';
 import { carrosData } from './data/carros';
 import { Search } from 'lucide-react';
@@ -78,6 +79,8 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

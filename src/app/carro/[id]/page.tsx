@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { carrosData } from '../../data/carros';
 import { 
   Gauge, Calendar, Fuel, CheckCircle, ArrowLeft, MessageCircle, 
@@ -37,6 +38,7 @@ export default function DetalhesCarro() {
           <p className={styles.naoEncontrado}>Veículo não encontrado.</p>
           <Link href="/" className={styles.voltarLink}>Voltar para o estoque</Link>
         </div>
+        <Footer />
       </main>
     );
   }
@@ -51,7 +53,6 @@ export default function DetalhesCarro() {
     setFotoAtiva((prev) => (prev - 1 + carro.fotos.length) % carro.fotos.length);
   };
 
-  // Função de Compartilhamento Inteligente
   const handleCompartilhar = async () => {
     const shareData = {
       title: `${carro.nome} - VM Veículos`,
@@ -63,10 +64,9 @@ export default function DetalhesCarro() {
       try {
         await navigator.share(shareData);
       } catch (err) {
-        console.log('Compartilhamento cancelado pelo usuário.', err);
+        console.log('Compartilhamento cancelado.', err);
       }
     } else {
-      // Fallback para desktop: copia o link direto
       navigator.clipboard.writeText(window.location.href);
       setCopiado(true);
       setTimeout(() => setCopiado(false), 2500);
@@ -146,7 +146,6 @@ export default function DetalhesCarro() {
                 <span className={styles.codigoBadge}>CÓD: {carro.codigo}</span>
                 {carro.vendido && <span className={styles.vendidoTag}>VENDIDO</span>}
 
-                {/* Botão de Compartilhar */}
                 <button 
                   onClick={handleCompartilhar} 
                   className={styles.shareBtn}
@@ -262,6 +261,8 @@ export default function DetalhesCarro() {
           </div>
         )}
       </div>
+
+      <Footer />
     </main>
   );
 }

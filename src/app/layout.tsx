@@ -1,20 +1,22 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
-// Altere para o domínio final quando o site estiver online (ex: https://vmveiculos.com.br)
+const inter = Inter({ subsets: ['latin'] });
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vmveiculos.com.br';
 
 export const metadata: Metadata = {
   title: 'VM Veículos | Vitória da Conquista - BA',
-  description: 'Veículos selecionados, revisados e com procedência garantida em Vitória da Conquista. Encontre seu próximo carro aqui!',
+  description: 'Veículos selecionados com procedência, transparência e alta qualidade em Vitória da Conquista - BA.',
   openGraph: {
     title: 'VM Veículos | Vitória da Conquista - BA',
-    description: 'Veículos selecionados, revisados e com procedência garantida. Confira nosso estoque!',
+    description: 'Veículos selecionados com procedência, transparência e alta qualidade em Vitória da Conquista - BA.',
     url: siteUrl,
     siteName: 'VM Veículos',
     images: [
       {
-        url: `${siteUrl}/og-image.jpg`, // Ou /logo.png se preferir usar a logo
+        url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: 'VM Veículos - Estoque de Carros em Vitória da Conquista',
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'VM Veículos | Vitória da Conquista - BA',
-    description: 'Veículos selecionados, revisados e com procedência garantida.',
+    description: 'Veículos selecionados com procedência, transparência e alta qualidade.',
     images: [`${siteUrl}/og-image.jpg`],
   },
 };
@@ -38,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
