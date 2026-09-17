@@ -2,11 +2,11 @@
 
   <img src="public/logo.png" alt="Humberto Veículos Logo" width="120" />
 
-  # 🚗 Humberto Veículos — Vitória da Conquista
+  # 🚗 Humberto Veículos — Sorocaba / SP
 
   **Plataforma Web de Estoque Automotivo de Alta Conversão**
 
-  [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
   [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
   [![CSS Modules](https://img.shields.io/badge/CSS_Modules-Styled-000000?style=for-the-badge&logo=css3)](https://github.com/css-modules/css-modules)
@@ -17,7 +17,7 @@
 
 ## 📌 Sobre o Projeto
 
-O **Humberto Veículos** é uma solução web moderna desenvolvida para a revenda de automóveis **Humberto Veículos**, localizada em Vitória da Conquista - BA. 
+O **Humberto Veículos** é uma solução web moderna desenvolvida para a revenda de automóveis **Humberto Veículos**, localizada em Sorocaba - SP. 
 
 O projeto foi projetado com foco total em **UX/UI intuitiva**, **carregamento ultra-rápido** e **alta taxa de conversão**, direcionando potenciais compradores diretamente ao atendimento via WhatsApp de forma ágil e sem fricção.
 
@@ -49,7 +49,7 @@ O projeto foi projetado com foco total em **UX/UI intuitiva**, **carregamento ul
 
 ```text
 humberto-veiculos/
-├── public/                 # Imagens estáticas (logos, ícones)
+├── public/                 # Imagens estáticas (logos, ícones, fotos de estoque)
 ├── src/
 │   ├── app/
 │   │   ├── carro/[id]/     # Página dinâmica de detalhes do veículo
@@ -57,6 +57,4 @@ humberto-veiculos/
 │   │   ├── components/     # Componentes reutilizáveis (Header, Footer, CarCard, etc.)
 │   │   ├── data/           # Schema de dados e mock do estoque (carros.ts)
 │   │   ├── layout.tsx      # Layout global da aplicação
-│   │   ├── page.tsx        # Página inicial (Home / Estoque)
-│   │   └── page.module.css # Estilos da Hero e Grid da Home
-└── README.md               # Documentação do projeto
+│   │   ├── page.tsx
