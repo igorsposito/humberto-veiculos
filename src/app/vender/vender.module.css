@@ -1,28 +1,29 @@
 .hero {
   position: relative;
-  /* Overlay escuro elegante sobre a imagem de veículos */
   background: 
     linear-gradient(
       180deg, 
-      rgba(15, 23, 42, 0.82) 0%, 
-      rgba(15, 23, 42, 0.94) 100%
+      rgba(15, 23, 42, 0.85) 0%, 
+      rgba(15, 23, 42, 0.95) 100%
     ),
     url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1600') center/cover no-repeat;
   padding: 4.5rem 1.5rem 3.5rem 1.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
+
 .badge {
   display: inline-block;
-  background-color: var(--accent-light);
-  color: var(--accent-color);
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
   font-weight: 700;
   font-size: 0.8rem;
   padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 1rem;
   text-transform: uppercase;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .hero h1 {
@@ -123,11 +124,11 @@
 
 .inputGroup input:focus,
 .inputGroup textarea:focus {
-  border-color: var(--accent-color);
+  border-color: #2563eb;
 }
 
 .btnSubmit {
-  background: linear-gradient(135deg, #c59b27 0%, #a37f1e 100%);
+  background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%);
   color: #fff;
   border: none;
   padding: 1rem;
@@ -140,11 +141,12 @@
   justify-content: center;
   gap: 10px;
   margin-top: 0.5rem;
-  transition: opacity 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btnSubmit:hover {
-  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
 .benefitsSide {
@@ -171,7 +173,7 @@
 }
 
 .icon {
-  color: var(--accent-color);
+  color: #2563eb;
   flex-shrink: 0;
   margin-top: 2px;
 }

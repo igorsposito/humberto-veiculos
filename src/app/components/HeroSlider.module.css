@@ -1,0 +1,176 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background-color: #0a0d12;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideActive {
+  opacity: 1;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 13, 18, 0.82) 0%,
+    rgba(10, 13, 18, 0.95) 100%
+  );
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.container h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+
+.container p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+}
+
+.heroBtn {
+  display: inline-block;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius, 12px);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.heroBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Setas de navegação */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.navBtn:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevBtn {
+  left: 24px;
+}
+
+.nextBtn {
+  right: 24px;
+}
+
+/* Indicadores das Pílulas (Dots) */
+.dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  background-color: #f97316;
+  width: 28px;
+  border-radius: 10px;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .sliderContainer {
+    height: 400px;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+
+  .container p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .navBtn {
+    display: none;
+  }
+}

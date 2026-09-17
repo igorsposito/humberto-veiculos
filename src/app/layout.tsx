@@ -5,22 +5,22 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vmveiculos.com.br';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.humbertoveiculos.com.br';
 
 export const metadata: Metadata = {
-  title: 'VM Veículos | Vitória da Conquista - BA',
-  description: 'Veículos selecionados com procedência, transparência e alta qualidade em Vitória da Conquista - BA.',
+  title: 'Humberto Veículos | Sorocaba - SP',
+  description: 'Veículos 100% selecionados com procedência, transparência e 20 anos de experiência em Sorocaba - SP.',
   openGraph: {
-    title: 'VM Veículos | Vitória da Conquista - BA',
-    description: 'Veículos selecionados com procedência, transparência e alta qualidade em Vitória da Conquista - BA.',
+    title: 'Humberto Veículos | Sorocaba - SP',
+    description: 'Veículos 100% selecionados com procedência, transparência e 20 anos de experiência em Sorocaba - SP.',
     url: siteUrl,
-    siteName: 'VM Veículos',
+    siteName: 'Humberto Veículos',
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: 'VM Veículos - Estoque de Carros em Vitória da Conquista',
+        alt: 'Humberto Veículos - Showroom de Carros em Sorocaba/SP',
       },
     ],
     locale: 'pt_BR',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VM Veículos | Vitória da Conquista - BA',
-    description: 'Veículos selecionados com procedência, transparência e alta qualidade.',
+    title: 'Humberto Veículos | Sorocaba - SP',
+    description: 'Veículos 100% selecionados com procedência, transparência e 20 anos de experiência.',
     images: [`${siteUrl}/og-image.jpg`],
   },
 };

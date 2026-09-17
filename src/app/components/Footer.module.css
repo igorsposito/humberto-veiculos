@@ -1,6 +1,6 @@
 .footer {
-  background-color: #0f172a; /* Tom escuro oficial */
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #1d1d1d; /* Tom de cinza grafite sóbrio e elegante */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3.5rem 1.5rem 1.5rem 1.5rem;
   color: #94a3b8;
 }
@@ -56,9 +56,9 @@
 }
 
 .socialIconBtn:hover {
-  color: #c59b27;
-  border-color: #c59b27;
-  background-color: rgba(197, 155, 39, 0.1);
+  color: #f97316; /* Destaque em Laranja no hover */
+  border-color: #f97316;
+  background-color: rgba(249, 115, 22, 0.1);
   transform: translateY(-2px);
 }
 
@@ -85,7 +85,7 @@
 }
 
 .linksList a:hover {
-  color: #c59b27;
+  color: #ffffff;
 }
 
 .contactList li {
@@ -97,7 +97,7 @@
 }
 
 .contactIcon {
-  color: #c59b27;
+ color: #f97316;
   flex-shrink: 0;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .instaLink:hover {
-  color: #c59b27;
+  color: #ffffff;
 }
 
 .bottomSection {
@@ -124,7 +124,7 @@
   gap: 1rem;
 }
 
-/* Assinatura com a logo da Agave */
+/* Assinatura com a logo da Ágave */
 .devBrand {
   display: flex;
   align-items: center;

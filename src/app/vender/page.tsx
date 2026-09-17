@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { ShieldCheck, DollarSign, Clock, MessageCircle } from 'lucide-react';
 import styles from './vender.module.css';
 
@@ -20,7 +21,7 @@ export default function VenderCarro() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mensagem = `Olá Vitor! Quero vender meu carro:%0A%0A` +
+    const mensagem = `Olá Humberto! Quero vender meu carro:%0A%0A` +
       `*Nome:* ${formData.nome}%0A` +
       `*Telefone:* ${formData.telefone}%0A` +
       `*Marca:* ${formData.marca}%0A` +
@@ -31,7 +32,7 @@ export default function VenderCarro() {
       `*Valor Pretendido:* R$ ${formData.preco}%0A` +
       `*Observações:* ${formData.detalhes || 'Nenhuma'}`;
 
-    window.open(`https://wa.me/5573981436039?text=${mensagem}`, '_blank');
+    window.open(`https://wa.me/5515997546994?text=${mensagem}`, '_blank');
   };
 
   return (
@@ -42,7 +43,7 @@ export default function VenderCarro() {
         <div className={styles.container}>
           <span className={styles.badge}>Avaliação Rápida</span>
           <h1>Venda ou Troque seu Carro sem Complicação</h1>
-          <p>Receba uma proposta justa pelo seu veículo com quem entende do mercado em Conquista.</p>
+          <p>Receba uma proposta justa pelo seu veículo com quem entende do mercado em Sorocaba e região.</p>
         </div>
       </section>
 
@@ -70,7 +71,7 @@ export default function VenderCarro() {
                   <input
                     type="tel"
                     required
-                    placeholder="Ex: (77) 99999-8888"
+                    placeholder="Ex: (15) 99999-8888"
                     value={formData.telefone}
                     onChange={e => setFormData({ ...formData, telefone: e.target.value })}
                   />
@@ -83,7 +84,7 @@ export default function VenderCarro() {
                   <input
                     type="text"
                     required
-                    placeholder="Ex: Toyota, BYD..."
+                    placeholder="Ex: Fiat, Toyota..."
                     value={formData.marca}
                     onChange={e => setFormData({ ...formData, marca: e.target.value })}
                   />
@@ -93,7 +94,7 @@ export default function VenderCarro() {
                   <input
                     type="text"
                     required
-                    placeholder="Ex: Corolla, Song Pro..."
+                    placeholder="Ex: Toro, Fastback..."
                     value={formData.modelo}
                     onChange={e => setFormData({ ...formData, modelo: e.target.value })}
                   />
@@ -102,7 +103,7 @@ export default function VenderCarro() {
                   <label>Versão</label>
                   <input
                     type="text"
-                    placeholder="Ex: XEi, GS, Sense..."
+                    placeholder="Ex: Volcano, Ultra, XEi..."
                     value={formData.versao}
                     onChange={e => setFormData({ ...formData, versao: e.target.value })}
                   />
@@ -146,7 +147,7 @@ export default function VenderCarro() {
                 <label>Detalhes / Opcionais (Opcional)</label>
                 <textarea
                   rows={3}
-                  placeholder="Ex: Único dono, teto solar, todas as revisões na concessionária..."
+                  placeholder="Ex: Único dono, teto solar, todas as revisões em concessionária..."
                   value={formData.detalhes}
                   onChange={e => setFormData({ ...formData, detalhes: e.target.value })}
                 />
@@ -161,7 +162,7 @@ export default function VenderCarro() {
 
           {/* Lado Direito: Benefícios */}
           <div className={styles.benefitsSide}>
-            <h3>Por que vender para a VM Veículos?</h3>
+            <h3>Por que vender para a Humberto Veículos?</h3>
 
             <div className={styles.benefitBox}>
               <DollarSign className={styles.icon} size={24} />
@@ -175,7 +176,7 @@ export default function VenderCarro() {
               <ShieldCheck className={styles.icon} size={24} />
               <div>
                 <h4>Zero Dor de Cabeça</h4>
-                <p>Esqueça curiosos, golpistas de OLX ou ter que ficar marcando visitas na sua casa.</p>
+                <p>Esqueça curiosos, golpistas de OLX ou ter que marcar visitas na sua casa.</p>
               </div>
             </div>
 
@@ -189,6 +190,8 @@ export default function VenderCarro() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

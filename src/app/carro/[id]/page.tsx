@@ -55,8 +55,8 @@ export default function DetalhesCarro() {
 
   const handleCompartilhar = async () => {
     const shareData = {
-      title: `${carro.nome} - VM Veículos`,
-      text: `Olha esse ${carro.nome} (${carro.ano}) que encontrei na VM Veículos!`,
+      title: `${carro.nome} - Humberto Veículos`,
+      text: `Olha esse ${carro.nome} (${carro.ano}) que encontrei na Humberto Veículos!`,
       url: window.location.href,
     };
 
@@ -73,7 +73,7 @@ export default function DetalhesCarro() {
     }
   };
 
-  const whatsMsg = encodeURIComponent(`Olá Vitor! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`);
+  const whatsMsg = encodeURIComponent(`Olá Humberto! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`);
 
   return (
     <main>
@@ -211,7 +211,7 @@ export default function DetalhesCarro() {
               </div>
 
               <a
-                href={`https://wa.me/5573981436039?text=${whatsMsg}`}
+                href={`https://wa.me/5515997546994?text=${whatsMsg}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.whatsBtnGrande}

@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(15, 23, 42, 0.95);
+  background-color: rgba(10, 13, 18, 0.96); /* Preto Grafite Neutro */
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.1rem 1.5rem; /* Voltou a ter mais respiro */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.1rem 1.5rem;
 }
 
 .container {
@@ -24,7 +24,7 @@
 }
 
 .logoImg {
-  height: 44px; /* Restaurada a altura original */
+  height: 44px;
   width: auto;
   object-fit: contain;
 }
@@ -46,7 +46,7 @@
 .brandSubtitle {
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--accent-color);
+  color: #f97316; /* Subtítulo Sorocaba-SP em Laranja */
   letter-spacing: 1.2px;
   text-transform: uppercase;
   margin-top: 3px;
@@ -75,18 +75,18 @@
 }
 
 .navLink {
-  color: var(--text-muted);
+  color: #cbd5e1;
   font-weight: 600;
   font-size: 0.92rem;
   transition: color 0.2s;
 }
 
 .navLink:hover {
-  color: var(--accent-color);
+  color: #ffffff;
 }
 
 .ctaBtn {
-  background: linear-gradient(135deg, #c59b27 0%, #a37f1e 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #ffffff;
   padding: 0.65rem 1.3rem;
   border-radius: var(--radius);
@@ -97,7 +97,7 @@
 
 .ctaBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -114,12 +114,12 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.98);
+    background-color: rgba(10, 13, 18, 0.98);
     flex-direction: column;
     align-items: stretch;
     padding: 1.5rem;
     gap: 1.2rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     display: none;
   }

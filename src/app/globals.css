@@ -5,10 +5,13 @@
   --text-main: #0f172a;
   --text-muted: #64748b;
   
-  /* Dourado VM Veículos */
-  --accent-color: #c59b27;
-  --accent-hover: #a37f1e;
-  --accent-light: #fefce8;
+  --accent-color: #ff6b00;       /* Laranja principal */
+  --accent-light: #fff0e5;       /* Fundo suave do badge de marca */
+  --accent-hover: #e05e00;
+  
+  /* Fundos Escuros Neutros e Sofisticados */
+  --bg-dark-header: #0f172a;
+  --bg-dark-hero: #1e293b;
   
   --whatsapp-color: #25d366;
   --whatsapp-hover: #1da851;
@@ -35,7 +38,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Aplicar fonte marcante nos títulos */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.5px;

@@ -12,10 +12,10 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logoLink} onClick={() => setMenuOpen(false)}>
-          <img src="/logo.png" alt="VM Veículos" className={styles.logoImg} />
+          <img src="/logo.png" alt="Humberto Veículos" className={styles.logoImg} />
           <div className={styles.brandTextGroup}>
-            <span className={styles.brandTitle}>VM VEÍCULOS</span>
-            <span className={styles.brandSubtitle}>VITÓRIA DA CONQUISTA</span>
+            <span className={styles.brandTitle}>HUMBERTO VEÍCULOS</span>
+            <span className={styles.brandSubtitle}>SOROCABA - SP</span>
           </div>
         </Link>
 

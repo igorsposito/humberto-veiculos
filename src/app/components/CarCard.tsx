@@ -8,10 +8,10 @@ interface CarCardProps {
 }
 
 export default function CarCard({ carro }: CarCardProps) {
-  // Mensagem condicional do WhatsApp
+  // Mensagem condicional do WhatsApp direcionada ao Humberto
   const textoWhats = carro.vendido
-    ? `Olá Vitor! Vi que o ${carro.nome} (CÓD: ${carro.codigo}) no site consta como vendido. Vocês têm algum modelo similar disponível no estoque?`
-    : `Olá Vitor! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`;
+    ? `Olá Humberto! Vi que o ${carro.nome} (CÓD: ${carro.codigo}) no seu site consta como vendido. Você tem algum modelo similar disponível no estoque?`
+    : `Olá Humberto! Tenho interesse no ${carro.nome} (${carro.ano}) de R$ ${carro.preco.toLocaleString('pt-BR')} (CÓD: ${carro.codigo}) que vi no seu site.`;
 
   const whatsMsg = encodeURIComponent(textoWhats);
 
@@ -59,7 +59,7 @@ export default function CarCard({ carro }: CarCardProps) {
             Ver Detalhes
           </Link>
           <a
-            href={`https://wa.me/5573981436039?text=${whatsMsg}`}
+            href={`https://wa.me/5515997546994?text=${whatsMsg}`}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.whatsBtn}
