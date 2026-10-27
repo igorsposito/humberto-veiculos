@@ -1,58 +1,16 @@
-.hero {
-  position: relative;
-  background: 
-    linear-gradient(
-      180deg, 
-      rgba(10, 13, 18, 0.88) 0%, 
-      rgba(10, 13, 18, 0.96) 100%
-    ),
-    url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1600') center/cover no-repeat;
-  padding: 5.5rem 1.5rem 4.5rem 1.5rem;
-  text-align: center;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* =========================================
+   HOME - HUMBERTO VEÍCULOS
+========================================= */
 
-/* Badge Sorocaba em Laranja */
-.heroTag {
-  display: inline-block;
-  background-color: rgba(249, 115, 22, 0.15);
-  color: #f97316;
-  font-weight: 700;
-  font-size: 0.8rem;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid rgba(249, 115, 22, 0.3);
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-}
-
-.hero p {
-  color: #94a3b8;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  max-width: 650px;
-  margin: 0 auto;
-}
+/* =========================================
+   SEÇÃO DE ESTOQUE
+========================================= */
 
 .gridSection {
-  padding: 2.5rem 1.5rem 5rem 1.5rem;
+  padding: 2.5rem 1.5rem 5rem;
   overflow: hidden;
+  scroll-margin-top: 120px;
 }
 
 .mainLayout {
@@ -72,6 +30,10 @@
   min-width: 0;
 }
 
+/* =========================================
+   CABEÇALHO DO CATÁLOGO
+========================================= */
+
 .gridHeader {
   display: flex;
   justify-content: space-between;
@@ -85,10 +47,13 @@
   font-weight: 800;
 }
 
-/* Número de veículos (7) em Laranja */
 .gridHeader span {
   color: #f97316;
 }
+
+/* =========================================
+   ORDENAÇÃO
+========================================= */
 
 .ordenacaoContainer {
   display: flex;
@@ -116,9 +81,16 @@
   color: #0f172a;
 }
 
+/* =========================================
+   GRID DE VEÍCULOS
+========================================= */
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  );
   gap: 1.25rem;
 }
 
@@ -128,6 +100,10 @@
   color: var(--text-muted);
 }
 
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
 @media (max-width: 1024px) {
   .mainLayout {
     grid-template-columns: 1fr;
@@ -136,21 +112,9 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 3rem 1rem 2.5rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-    word-break: break-word;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
   .gridSection {
-    padding: 1.5rem 1rem 4rem 1rem;
+    padding: 1.5rem 1rem 4rem;
+    scroll-margin-top: 100px;
   }
 
   .gridHeader {

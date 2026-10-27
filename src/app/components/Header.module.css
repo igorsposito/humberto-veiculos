@@ -1,30 +1,37 @@
+
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(10, 13, 18, 0.96); /* Preto Grafite Neutro */
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.1rem 1.5rem;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
 .container {
   max-width: 1200px;
+  min-height: 100px;
   margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logoImg {
-  height: 44px;
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -36,49 +43,63 @@
 
 .brandTitle {
   font-family: var(--font-title);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 900;
   color: #ffffff;
-  letter-spacing: 0.8px;
-  line-height: 1;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
 }
 
 .brandSubtitle {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #f97316; /* Subtítulo Sorocaba-SP em Laranja */
-  letter-spacing: 1.2px;
+  font-size: 0.67rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-top: 3px;
-}
-
-.mobileMenuBtn {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 4px;
+  margin-top: 5px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 24px;
 }
 
 .navList {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navList li {
+  position: relative;
+}
+
+/* Divisórias diagonais */
+.navList li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 26px;
+  background: #d6dce5;
+  transform: translateY(-50%) skewX(-20deg);
 }
 
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 18px;
   color: #cbd5e1;
-  font-weight: 600;
-  font-size: 0.92rem;
-  transition: color 0.2s;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .navLink:hover {
@@ -86,43 +107,91 @@
 }
 
 .ctaBtn {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
-  padding: 0.65rem 1.3rem;
+  padding: 15px 20px;
   border-radius: var(--radius);
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.83rem;
+  white-space: nowrap;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .ctaBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 0.9rem 1rem;
+.mobileMenuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    padding: 0 20px;
+    gap: 15px;
   }
 
-  .mobileMenuBtn {
-    display: block;
+  .logoImg {
+    height: 50px;
+  }
+
+  .brandTitle {
+    font-size: 1rem;
   }
 
   .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: rgba(10, 13, 18, 0.98);
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1.5rem;
-    gap: 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    display: none;
+    gap: 12px;
   }
+
+  .navLink {
+    padding: 0 10px;
+    font-size: 0.82rem;
+  }
+
+  .ctaBtn {
+    padding: 13px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    min-height: 78px;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+    margin-left: auto;
+  }
+
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  padding: 24px;
+  background: #0f172a;
+  border-bottom: 2px solid var(--accent-color);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+}
 
   .navOpen {
     display: flex;
@@ -130,20 +199,64 @@
 
   .navList {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    width: 100%;
+    align-items: stretch;
   }
 
+.navList li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-50%) skewX(-20deg);
+}
+
+.navList li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
   .navLink {
-    font-size: 1.05rem;
-    display: block;
     width: 100%;
-    padding: 4px 0;
+    min-height: 50px;
+    padding: 0;
+    font-size: 0.95rem;
   }
 
   .ctaBtn {
     width: 100%;
-    text-align: center;
+    padding: 16px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    min-height: 72px;
+    padding: 0 16px;
+  }
+
+  .logoLink {
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .logoImg {
+    height: 42px;
+    max-width: 85px;
+  }
+
+  .brandTitle {
+    font-size: 0.87rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+
+  .nav {
+    padding: 18px 20px 24px;
   }
 }

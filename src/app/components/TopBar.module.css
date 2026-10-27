@@ -1,0 +1,154 @@
+
+/* =========================================
+   TOP BAR - HUMBERTO VEÍCULOS
+========================================= */
+
+.topBar {
+  width: 100%;
+  min-height: 46px;
+  background: #0a101c;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  min-height: 46px;
+  margin: 0 auto;
+  padding: 9px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* HORÁRIO DE ATENDIMENTO */
+
+.hours {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #e2e8f0;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.hours svg {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.hours strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* CONTATOS */
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.phone,
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #ffffff;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.phone {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.phone svg {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.phone:hover {
+  color: var(--accent-color);
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.whatsapp {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.whatsapp svg {
+  color: var(--whatsapp-color);
+  flex-shrink: 0;
+}
+
+.whatsapp:hover {
+  color: var(--whatsapp-color);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+  .topBar {
+    min-height: 40px;
+  }
+
+  .container {
+    min-height: 40px;
+    padding: 9px 16px;
+    gap: 8px;
+  }
+
+  .hours {
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .hours svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .contact {
+    gap: 0;
+  }
+
+  .phone {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .phone svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .divider,
+  .whatsapp {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+}

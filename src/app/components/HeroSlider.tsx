@@ -1,110 +1,179 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, ShieldCheck, Car, KeyRound } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from 'lucide-react';
 import styles from './HeroSlider.module.css';
 
 interface Slide {
   id: number;
-  tag: string;
   titulo: string;
   descricao: string;
   btnText: string;
   btnLink: string;
   bgImage: string;
-  icone: any;
 }
 
 const slides: Slide[] = [
   {
     id: 1,
-    tag: 'Sorocaba - SP',
     titulo: 'Seu próximo carro está aqui',
-    descricao: 'Veículos 100% selecionados, revisados e com a procedência e garantia de quem tem 20 anos de tradição.',
+    descricao:
+      'Veículos 100% selecionados, revisados e com a procedência e garantia de quem tem 20 anos de tradição.',
     btnText: 'Ver Estoque Completo',
     btnLink: '#estoque',
-    bgImage: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1600',
-    icone: Car,
+    bgImage:
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?q=85&w=1920&auto=format&fit=crop',
   },
   {
     id: 2,
-    tag: 'Avaliação Justa & Rápida',
     titulo: 'Quer vender seu veículo?',
-    descricao: 'A melhor avaliação da região com pagamento imediato e sem burocracia.',
+    descricao:
+      'A melhor avaliação da região com pagamento imediato e sem burocracia.',
     btnText: 'Avaliar Meu Carro',
     btnLink: '/vender',
-    bgImage: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600',
-    icone: KeyRound,
+    bgImage:
+      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=1920&auto=format&fit=crop',
   },
   {
     id: 3,
-    tag: 'Financiamento Facilitado',
     titulo: 'As melhores taxas de Sorocaba',
-    descricao: 'Entrada facilitada no cartão de crédito em até 18x e financiamento em até 60x.',
+    descricao:
+      'Entrada facilitada no cartão de crédito em até 18x e financiamento em até 60x.',
     btnText: 'Falar no WhatsApp',
     btnLink: 'https://wa.me/5515997546994',
-    bgImage: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1600',
-    icone: ShieldCheck,
+    bgImage:
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=85&w=1920&auto=format&fit=crop',
   },
 ];
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (paused) return;
+
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 6500);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent(
+      (prev) => (prev - 1 + slides.length) % slides.length
+    );
+  };
 
   return (
-    <section className={styles.sliderContainer}>
+    <section
+      className={styles.sliderContainer}
+      aria-label="Destaques Humberto Veículos"
+      aria-roledescription="carrossel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (
+          !event.currentTarget.contains(
+            event.relatedTarget as Node | null
+          )
+        ) {
+          setPaused(false);
+        }
+      }}
+    >
       {slides.map((slide, index) => {
-        const IconeSlide = slide.icone;
+        const active = index === current;
+
         return (
           <div
             key={slide.id}
-            className={`${styles.slide} ${index === current ? styles.slideActive : ''}`}
-            style={{ backgroundImage: `url(${slide.bgImage})` }}
+            className={`${styles.slide} ${
+              active ? styles.slideActive : ''
+            }`}
+            aria-hidden={!active}
+            inert={!active}
           >
+            <div
+              className={styles.slideImage}
+              style={{
+                backgroundImage: `url("${slide.bgImage}")`,
+              }}
+            />
+
             <div className={styles.overlay} />
+
             <div className={styles.container}>
-              <span className={styles.heroTag}>
-                <IconeSlide size={14} />
-                {slide.tag}
-              </span>
-              <h1>{slide.titulo}</h1>
-              <p>{slide.descricao}</p>
-              <Link href={slide.btnLink} className={styles.heroBtn}>
-                {slide.btnText}
-              </Link>
+              <div className={styles.content}>
+                <h1>{slide.titulo}</h1>
+
+                <p>{slide.descricao}</p>
+
+                <Link
+                  href={slide.btnLink}
+                  className={styles.heroBtn}
+                  tabIndex={active ? 0 : -1}
+                  target={
+                    slide.btnLink.startsWith('https://')
+                      ? '_blank'
+                      : undefined
+                  }
+                  rel={
+                    slide.btnLink.startsWith('https://')
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
+                >
+                  {slide.btnText}
+                  <ArrowUpRight size={19} aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </div>
         );
       })}
 
-      {/* Controles Laterais */}
-      <button onClick={prevSlide} className={`${styles.navBtn} ${styles.prevBtn}`} aria-label="Slide anterior">
-        <ChevronLeft size={22} />
-      </button>
-      <button onClick={nextSlide} className={`${styles.navBtn} ${styles.nextBtn}`} aria-label="Próximo slide">
-        <ChevronRight size={22} />
+      <button
+        type="button"
+        onClick={prevSlide}
+        className={`${styles.navBtn} ${styles.prevBtn}`}
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft size={24} />
       </button>
 
-      {/* Indicadores (Dots) */}
+      <button
+        type="button"
+        onClick={nextSlide}
+        className={`${styles.navBtn} ${styles.nextBtn}`}
+        aria-label="Próximo slide"
+      >
+        <ChevronRight size={24} />
+      </button>
+
       <div className={styles.dots}>
-        {slides.map((_, i) => (
+        {slides.map((slide, index) => (
           <button
-            key={i}
-            className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Ir para o slide ${i + 1}`}
+            type="button"
+            key={slide.id}
+            className={`${styles.dot} ${
+              index === current ? styles.dotActive : ''
+            }`}
+            onClick={() => setCurrent(index)}
+            aria-label={`Ir para o slide ${index + 1}`}
+            aria-current={index === current ? 'true' : undefined}
           />
         ))}
       </div>
